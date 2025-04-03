@@ -6,9 +6,13 @@ from models.category_model import Category
 
 
 
-
 def get_categories(db:SessionLocal):
     return db.query(Category).all()
+
+
+
+
+
 
 
 
@@ -17,6 +21,9 @@ def create_category2(db:SessionLocal, category_name:str):
     new_category=Category(name=category_name)
     db.add(new_category)
     db.commit()
+
+
+
 
 
 
