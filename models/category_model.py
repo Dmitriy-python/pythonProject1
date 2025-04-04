@@ -1,4 +1,4 @@
-from attr.validators import max_len
+
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -12,6 +12,9 @@ class Category(base):
 
 
     products_list = relationship('Product', back_populates='categories', uselist=True)
+
+
+
 
 
 

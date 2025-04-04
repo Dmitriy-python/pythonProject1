@@ -52,10 +52,8 @@ def update_category(db:SessionLocal, category_name:str, new_name):
 
 
 
-
-
 def get_cat_by_name(db:SessionLocal, name:str):
-    category=db.query(Category).filter_by(name=name).first()
+    category = db.query(Category).filter_by(name=name).first()
     if category is None:
         return False
     return category
