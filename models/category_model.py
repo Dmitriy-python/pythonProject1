@@ -53,9 +53,11 @@ class User(base):
     isdelete=Column(BOOLEAN, default=False)
 
     roles=relationship('Role', back_populates='users_list', uselist=False)
-
     # carts = relationship('Cart', backref='user', cascade='all, delete')
-    # bonus_cards = relationship('Bonus', backref='user', cascade='all, delete')
+
+    cart = relationship('Cart', back_populates='users', uselist=False)
+
+    bonus_card = relationship('Bonus', back_populates='users', uselist=False)
 
 
 class Cart(base):
@@ -63,6 +65,9 @@ class Cart(base):
     id = Column(Integer, primary_key=True, index=True)
     user_id=Column(Integer, ForeignKey('users.id'))
     isdelete = Column(BOOLEAN, default=False)
+
+
+    users = relationship('User', back_populates='cart', uselist=False)
 
 
 
@@ -74,11 +79,31 @@ class Bonus(base):
     isdelete = Column(BOOLEAN, default=False)
 
 
+
+    users=relationship('User', back_populates='bonus_card', uselist=False)
+
+
+
+
 class Size(base):
     __tablename__ = "sizes"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), nullable=False)
     mult=Column(NUMERIC, nullable=False,default=1)
+
+
+
+class CartProduct(base):
+    __tablename__ = "cart_products"
+    id = Column(Integer, primary_key=True, index=True)
+    cart_id = Column(Integer, ForeignKey('cart.id'))
+    product_id = Column(Integer, ForeignKey('products.id'))
+    size_id = Column(Integer, ForeignKey('sizes.id'))
+    quantity = Column(Integer, default=1)
+
+    cart = relationship('Cart', back_populates='cart_products')
+    product = relationship('Product', back_populates='cart_products')
+    size = relationship('Size', back_populates='cart_products')
 
 
 

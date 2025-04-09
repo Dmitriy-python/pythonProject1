@@ -1,4 +1,4 @@
-from aiofiles.ospath import exists
+
 from environs import Env
 from fastapi import Body
 from unicodedata import category
@@ -39,61 +39,22 @@ def get_admin_role_as_object(db:SessionLocal):
 
 
 
-def give_user_bonus_card_and_cart(db:SessionLocal, user):
-    new_cart=Cart(user_id=user.id)
-    new_bonus_card=Bonus(user_id=user.id)
-    db.add(new_cart)
-    db.add(new_bonus_card)
-    db.commit()
-
-
-
 def add_user_to_db(db:SessionLocal, user=UserModel):
     if user.tg_id==admin_id:
         a=get_admin_role_as_object(db)
         new_user_admin=User(name=user.name, age=user.age, tg_id=user.tg_id,
                              phone_number=user.phone_number, id_role=a.id)
+        new_user_admin.cart=Cart()
+        new_user_admin.bonus_card=Cart()
         a.users_list.append(new_user_admin)
-        db.commit()
-        give_user_bonus_card_and_cart(db,new_user_admin)
         db.commit()
     else:
         new_user = User(name=user.name, age=user.age, tg_id=user.tg_id,
                               phone_number=user.phone_number)
+        new_user.bonus_card=Bonus()
+        new_user.cart=Cart()
         db.add(new_user)
         db.commit()
-        give_user_bonus_card_and_cart(db,new_user)
-        db.commit()
-
-
-
-
-def update_user_role(db:SessionLocal, phone_number, new_role_id):
-    existing_user=db.query(User).filter_by(phone_number=phone_number).first()
-
-
-    if existing_user is not None:
-        existing_user.id_role=new_role_id
-        db.commit()
-        db.refresh(existing_user)
-        return True
-    else:
-        return False
-
-
-
-
-
-def make_on_delete(db:SessionLocal, user):
-    cart=db.query(Cart).filter_by(user_id=user.id).first()
-    bonus_card=db.query(Bonus).filter_by(user_id=user.id).first()
-    cart.isdelete=True
-    db.commit()
-    db.refresh(cart)
-    bonus_card.isdelete=True
-    db.commit()
-    db.refresh(bonus_card)
-
 
 
 def delete_user(db:SessionLocal, user_phone:str):
@@ -102,8 +63,10 @@ def delete_user(db:SessionLocal, user_phone:str):
         return False
     else:
         user_to_del.isdelete=True
+        user_to_del.cart.isdelete=True
+        user_to_del.bonus_card.isdelete=True
         db.commit()
         db.refresh(user_to_del)
-        make_on_delete(db, user_to_del)
+        # make_on_delete(db, user_to_del)
         return True
 

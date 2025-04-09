@@ -11,3 +11,16 @@ class UserModel(BaseModel):
     id_role:int|None = Field(default=1)
 
 
+
+
+class BonusCardModel(BaseModel):
+    balance: int
+    user_id:int
+
+
+class CartModel(BaseModel):
+    user_id:int
+
+
+class Role(BaseModel):
+    name:str=Field(max_length=50)

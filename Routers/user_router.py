@@ -12,10 +12,8 @@ from starlette.status import HTTP_404_NOT_FOUND
 from fastapi import FastAPI, Body
 from Models import SessionLocal, get_db
 from cruds.category_crud import get_categories, create_category2, update_category, del_category
-from cruds.product_crud import get_products, get_one_category_products, add_product, update_product1, delete_product, \
-    get_product_by_name
-from cruds.user_crud import get_users, get_user_by_tg_id, get_one_role_users, add_user_to_db, update_user_role, \
-    delete_user
+from cruds.product_crud import get_products, get_one_category_products, add_product, update_product1, delete_product, get_product_by_name
+from cruds.user_crud import get_users, get_user_by_tg_id, get_one_role_users, add_user_to_db,  delete_user
 from schemas.product_schemas import ProductModel
 from schemas.user_schemas import UserModel
 
@@ -58,12 +56,6 @@ def add_user(user:UserModel, db:SessionLocal=Depends(get_db)):
         return JSONResponse(content={"message": "User added"}, status_code=status.HTTP_201_CREATED)
 
 
-@router.patch("/{phone_number}")
-def change_role(phone_number:str, new_role_id:int=Body(embed=True), db:SessionLocal=Depends(get_db)):
-    if update_user_role(db, phone_number, new_role_id):
-        return JSONResponse(content={"message": "Role updated"}, status_code=status.HTTP_201_CREATED)
-    else:
-        return JSONResponse(content={"message": "No user found"}, status_code=status.HTTP_404_NOT_FOUND)
 
 
 

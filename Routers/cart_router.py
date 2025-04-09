@@ -7,11 +7,6 @@ from fastapi import FastAPI, Body
 from Models import SessionLocal, get_db
 from cruds.category_crud import get_categories, create_category2, del_category, update_category
 
-router=APIRouter(prefix='/api/categories', tags=["categories"])
-
-
-@router.get("/")
-def root(db:SessionLocal=Depends(get_db)):
-    return get_categories(db)
+router=APIRouter(prefix='/api/cart', tags=["cart"])
 
 
