@@ -2,9 +2,6 @@ from pydantic import BaseModel, Field
 
 
 
-
-
-
 class ProductModel(BaseModel):
     name: str = Field(max_length=50)
     price: int|None=Field(default=0)
@@ -13,3 +10,5 @@ class ProductModel(BaseModel):
     img_url:str  = Field(max_length=255)
     age_restriction:int
     category_id : int =Field()
+
+

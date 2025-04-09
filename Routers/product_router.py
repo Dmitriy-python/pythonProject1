@@ -27,8 +27,6 @@ router=APIRouter(prefix='/api/products', tags=["products"])
 def root(name:Optional[str]=Query(None), db:SessionLocal=Depends(get_db)):
     if name:
         return get_product_by_name(db, name)
-
-
     return get_products(db)
 
 
