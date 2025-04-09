@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17b249ca-c23b-43b1-bd5a-1861f3c7eb42" name="Changes" comment="latest version">
-      <change afterPath="$PROJECT_DIR$/Routers/admin_router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Routers/cart_router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cruds/admin_crud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cruds/cart_crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/pythonProject1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routers/category_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/category_router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routers/user_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/user_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routers/cart_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/Routers/cart_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cruds/cart_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/cruds/cart_crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cruds/user_crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/cruds/user_crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/category_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/category_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/user_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/user_schemas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +36,12 @@
     &quot;assignee&quot;: &quot;Dmitriy-python&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Dmitriy-python/pythonProject1.git",
-    "accountId": "e9c81168-bfb4-42f9-95c4-be7747d7f5db"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dmitriy-python/pythonProject1.git&quot;,
+    &quot;accountId&quot;: &quot;d87d27b2-ffdd-4048-888a-b55b9cf65ccb&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -92,7 +87,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
       </set>
     </attachedChunks>
   </component>

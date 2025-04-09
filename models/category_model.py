@@ -28,6 +28,9 @@ class Product(base):
     category_id=Column(Integer, ForeignKey('category.id'))
 
 
+    cart_products = relationship('CartProduct', back_populates='product')
+
+
 
     categories = relationship('Category', back_populates='products_list', uselist=False)
 
@@ -67,6 +70,10 @@ class Cart(base):
     isdelete = Column(BOOLEAN, default=False)
 
 
+
+    cart_products = relationship('CartProduct', back_populates='cart')
+
+
     users = relationship('User', back_populates='cart', uselist=False)
 
 
@@ -91,6 +98,8 @@ class Size(base):
     name = Column(String(50), nullable=False)
     mult=Column(NUMERIC, nullable=False,default=1)
 
+    cart_products = relationship('CartProduct', back_populates='size')
+
 
 
 class CartProduct(base):
@@ -102,8 +111,25 @@ class CartProduct(base):
     quantity = Column(Integer, default=1)
 
     cart = relationship('Cart', back_populates='cart_products')
+
+
     product = relationship('Product', back_populates='cart_products')
+
+
     size = relationship('Size', back_populates='cart_products')
+
+
+
+
+
+class Cart_products_view(base):
+    __tablename__ = "cart_products_view"
+    id = Column(Integer, primary_key=True, index=True)
+    cart_id = Column(Integer, ForeignKey('cart.id'))
+    product_id = Column(Integer, ForeignKey('products.id'))
+    quantity = Column(Integer, default=1)
+    size_id = Column(Integer, ForeignKey('sizes.id'))
+    total_price=Column(NUMERIC)
 
 
 
