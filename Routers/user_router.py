@@ -25,6 +25,9 @@ router=APIRouter(prefix='/api/users', tags=["users"])
 
 
 
+
+
+
 @router.get("/")
 def root(tg_id:Optional[str]=Query(None), db:SessionLocal=Depends(get_db)):
     if tg_id:

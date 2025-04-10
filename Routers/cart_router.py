@@ -17,10 +17,12 @@ def display_all_products(user_id:int,db:SessionLocal=Depends(get_db)):
     a = all_p_in_one_cart(
         db, user_id
     )
+
+
     total_sum = total_price(
         db, user_id
     )
-    return {"list": f"{a}", "total_price":f"{total_sum}"}
+    return JSONResponse(content=a, status_code=status.HTTP_200_OK)
 
 
 

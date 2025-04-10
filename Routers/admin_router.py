@@ -1,6 +1,5 @@
 from importlib.metadata import requires
 from typing import Optional
-
 from environs import Env
 from fastapi import APIRouter, Query
 from fastapi.encoders import jsonable_encoder
